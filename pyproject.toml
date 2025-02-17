@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "spacesos"
+version = "0.1.0"
+description = ""
+authors = ["Shubhashish Dixit <shubhashish@dwell.fi>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+django = "^5.1.6"
+djangorestframework = "^3.15.2"
+python-dotenv = "^1.0.1"
+django-structlog = "^9.0.1"
+djangorestframework-simplejwt = "^5.4.0"
+cryptography = "^44.0.1"
+factory-boy = "^3.3.3"
+faker = "^36.1.1"
+pydantic-ai-slim = {extras = ["vertexai"], version = "^0.0.24"}
+dateparser = "^1.2.1"
+marvin = "^2.3.8"
+dj-database-url = "^2.3.0"
+psycopg2-binary = "^2.9.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
