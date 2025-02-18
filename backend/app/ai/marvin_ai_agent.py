@@ -22,7 +22,6 @@ def summarize_tasks_by_priority(tasks: List[Dict[str, Any]]) -> list:
             - `due_date` (str): The due date for the task in ISO 8601 format.
             - `priority` (str): The priority of the task (e.g., "HIGH", "MEDIUM", "LOW").
             - `client` (int): The client ID associated with the task.
-            - `reminder_created` (bool): Whether a reminder has been created.
 
     Returns:
         List[Dict[str, str]]: A list of dictionaries summarizing tasks by priority:
@@ -35,8 +34,8 @@ def summarize_tasks_by_priority(tasks: List[Dict[str, Any]]) -> list:
     ```python
     Input:
     [
-        {"id": "1", "title": "Call John", "completed": False, "due_date": "2025-02-17T14:12:13+05:30", "priority": "HIGH", "client": 2, "reminder_created": False},
-        {"id": "2", "title": "Email Report", "completed": False, "due_date": "2025-02-17T14:45:30+05:30", "priority": "MEDIUM", "client": 2, "reminder_created": False}
+        {"id": "1", "title": "Call John", "completed": False, "due_date": "2025-02-17T14:12:13+05:30", "priority": "HIGH", "client": 2},
+        {"id": "2", "title": "Email Report", "completed": False, "due_date": "2025-02-17T14:45:30+05:30", "priority": "MEDIUM", "client": 2}
     ]
 
     Output:

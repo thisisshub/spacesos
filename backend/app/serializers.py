@@ -27,8 +27,6 @@ class TaskSerializer(serializers.ModelSerializer):
     Serializer for Tasks, automatically creating a reminder when a new task is added.
     """
 
-    reminder_created = serializers.BooleanField(default=False, read_only=True)
-
     class Meta:
         model = Task
         fields = [
@@ -38,7 +36,6 @@ class TaskSerializer(serializers.ModelSerializer):
             "due_date",
             "priority",
             "client",
-            "reminder_created",
         ]
 
     def extract_reminder_date(self, text):
