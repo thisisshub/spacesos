@@ -6,7 +6,7 @@ authors = ["Shubhashish Dixit <shubhashish@dwell.fi>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "3.12.8"
 django = "^5.1.6"
 djangorestframework = "^3.15.2"
 python-dotenv = "^1.0.1"
@@ -20,6 +20,8 @@ dateparser = "^1.2.1"
 marvin = "^2.3.8"
 dj-database-url = "^2.3.0"
 psycopg2-binary = "^2.9.10"
+zappa = "^0.59.0"
+setuptools = "^75.8.0"
 
 [build-system]
 requires = ["poetry-core"]

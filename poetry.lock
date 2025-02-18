@@ -25,11 +25,26 @@ files = [
 [package.dependencies]
 idna = ">=2.8"
 sniffio = ">=1.1"
+typing_extensions = {version = ">=4.5", markers = "python_version < \"3.13\""}
 
 [package.extras]
 doc = ["Sphinx (>=7.4,<8.0)", "packaging", "sphinx-autodoc-typehints (>=1.2.0)", "sphinx_rtd_theme"]
 test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypothesis (>=4.0)", "psutil (>=5.9)", "pytest (>=7.0)", "trustme", "truststore (>=0.9.1)", "uvloop (>=0.21)"]
 trio = ["trio (>=0.26.1)"]
+
+[[package]]
+name = "argcomplete"
+version = "3.5.3"
+description = "Bash tab completion for argparse"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "argcomplete-3.5.3-py3-none-any.whl", hash = "sha256:2ab2c4a215c59fd6caaff41a869480a23e8f6a5f910b266c1808037f4e375b61"},
+    {file = "argcomplete-3.5.3.tar.gz", hash = "sha256:c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"},
+]
+
+[package.extras]
+test = ["coverage", "mypy", "pexpect", "ruff", "wheel"]
 
 [[package]]
 name = "asgiref"
@@ -44,6 +59,44 @@ files = [
 
 [package.extras]
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
+
+[[package]]
+name = "boto3"
+version = "1.36.22"
+description = "The AWS SDK for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "boto3-1.36.22-py3-none-any.whl", hash = "sha256:39957eabdce009353d72d131046489fbbfa15891865d5f069f1e8bfa414e6b81"},
+    {file = "boto3-1.36.22.tar.gz", hash = "sha256:768c8a4d4a6227fe2258105efa086f1424cba5ca915a5eb2305b2cd979306ad1"},
+]
+
+[package.dependencies]
+botocore = ">=1.36.22,<1.37.0"
+jmespath = ">=0.7.1,<2.0.0"
+s3transfer = ">=0.11.0,<0.12.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
+
+[[package]]
+name = "botocore"
+version = "1.36.22"
+description = "Low-level, data-driven core of boto 3."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "botocore-1.36.22-py3-none-any.whl", hash = "sha256:75d6b34acb0686ee4d54ff6eb285e78ccfe318407428769d1e3e13351714d890"},
+    {file = "botocore-1.36.22.tar.gz", hash = "sha256:59520247d5a479731724f97c995d5a1c2aae3b303b324f39d99efcfad1d3019e"},
+]
+
+[package.dependencies]
+jmespath = ">=0.7.1,<2.0.0"
+python-dateutil = ">=2.1,<3.0.0"
+urllib3 = {version = ">=1.25.4,<2.2.0 || >2.2.0,<3", markers = "python_version >= \"3.10\""}
+
+[package.extras]
+crt = ["awscrt (==0.23.8)"]
 
 [[package]]
 name = "cachetools"
@@ -145,6 +198,22 @@ files = [
 
 [package.dependencies]
 pycparser = "*"
+
+[[package]]
+name = "cfn-flip"
+version = "1.3.0"
+description = "Convert AWS CloudFormation templates between JSON and YAML formats"
+optional = false
+python-versions = "*"
+files = [
+    {file = "cfn_flip-1.3.0-py3-none-any.whl", hash = "sha256:faca8e77f0d32fb84cce1db1ef4c18b14a325d31125dae73c13bcc01947d2722"},
+    {file = "cfn_flip-1.3.0.tar.gz", hash = "sha256:003e02a089c35e1230ffd0e1bcfbbc4b12cc7d2deb2fcc6c4228ac9819307362"},
+]
+
+[package.dependencies]
+Click = "*"
+PyYAML = ">=4.1"
+six = "*"
 
 [[package]]
 name = "charset-normalizer"
@@ -467,6 +536,17 @@ python-jose = ["python-jose (==3.3.0)"]
 test = ["cryptography", "freezegun", "pytest", "pytest-cov", "pytest-django", "pytest-xdist", "tox"]
 
 [[package]]
+name = "durationpy"
+version = "0.9"
+description = "Module for converting between datetime.timedelta and Go's Duration strings."
+optional = false
+python-versions = "*"
+files = [
+    {file = "durationpy-0.9-py3-none-any.whl", hash = "sha256:e65359a7af5cedad07fb77a2dd3f390f8eb0b74cb845589fa6c057086834dd38"},
+    {file = "durationpy-0.9.tar.gz", hash = "sha256:fd3feb0a69a0057d582ef643c355c40d2fa1c942191f914d12203b1a01ac722a"},
+]
+
+[[package]]
 name = "eval-type-backport"
 version = "0.2.2"
 description = "Like `typing._eval_type`, but lets older Python versions use newer typing features."
@@ -579,6 +659,17 @@ python-versions = ">=3.7"
 files = [
     {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
     {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+]
+
+[[package]]
+name = "hjson"
+version = "3.1.0"
+description = "Hjson, a user interface for JSON."
+optional = false
+python-versions = "*"
+files = [
+    {file = "hjson-3.1.0-py3-none-any.whl", hash = "sha256:65713cdcf13214fb554eb8b4ef803419733f4f5e551047c9b711098ab7186b89"},
+    {file = "hjson-3.1.0.tar.gz", hash = "sha256:55af475a27cf83a7969c808399d7bccdec8fb836a07ddbd574587593b9cdcf75"},
 ]
 
 [[package]]
@@ -743,6 +834,17 @@ files = [
 ]
 
 [[package]]
+name = "jmespath"
+version = "1.0.1"
+description = "JSON Matching Expressions"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
+    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
+]
+
+[[package]]
 name = "jsonpatch"
 version = "1.33"
 description = "Apply JSON-Patches (RFC 6902)"
@@ -766,6 +868,23 @@ files = [
     {file = "jsonpointer-3.0.0-py2.py3-none-any.whl", hash = "sha256:13e088adc14fca8b6aa8177c044e12701e6ad4b28ff10e65f2267a90109c9942"},
     {file = "jsonpointer-3.0.0.tar.gz", hash = "sha256:2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"},
 ]
+
+[[package]]
+name = "kappa"
+version = "0.6.0"
+description = "A CLI tool for AWS Lambda developers"
+optional = false
+python-versions = "*"
+files = [
+    {file = "kappa-0.6.0-py2-none-any.whl", hash = "sha256:4d6b7b3accce4a0aaaac92b36237a6304f0f2fffbbe3caea3f7c9f52d12c9989"},
+    {file = "kappa-0.6.0.tar.gz", hash = "sha256:4b5b372872f25d619e427e04282551048dc975a107385b076b3ffc6406a15833"},
+]
+
+[package.dependencies]
+boto3 = ">=1.2.3"
+click = ">=5.1"
+placebo = ">=0.8.1"
+PyYAML = ">=3.11"
 
 [[package]]
 name = "logfire-api"
@@ -956,6 +1075,27 @@ python-versions = "*"
 files = [
     {file = "partialjson-0.1.0-py3-none-any.whl", hash = "sha256:6a8c333b7258b17c5f91765bf8cc27309e496edacb528c62173138974dfe2851"},
     {file = "partialjson-0.1.0.tar.gz", hash = "sha256:0af7035ed8d0194691d9e015302a462f61a732271e927d81a5a0971ee2fe38fd"},
+]
+
+[[package]]
+name = "pip"
+version = "25.0.1"
+description = "The PyPA recommended tool for installing Python packages."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pip-25.0.1-py3-none-any.whl", hash = "sha256:c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f"},
+    {file = "pip-25.0.1.tar.gz", hash = "sha256:88f96547ea48b940a3a385494e181e29fb8637898f88d88737c5049780f196ea"},
+]
+
+[[package]]
+name = "placebo"
+version = "0.9.0"
+description = "Make boto3 calls that look real but have no effect"
+optional = false
+python-versions = "*"
+files = [
+    {file = "placebo-0.9.0.tar.gz", hash = "sha256:03157f8527bbc2965b71b88f4a139ef8038618b346787f20d63e3c5da541b047"},
 ]
 
 [[package]]
@@ -1356,6 +1496,23 @@ files = [
 dev = ["coverage[toml]", "coveralls (>=3.3,<4.0)", "ruff", "twine"]
 
 [[package]]
+name = "python-slugify"
+version = "8.0.4"
+description = "A Python slugify application that also handles Unicode"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "python-slugify-8.0.4.tar.gz", hash = "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"},
+    {file = "python_slugify-8.0.4-py2.py3-none-any.whl", hash = "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8"},
+]
+
+[package.dependencies]
+text-unidecode = ">=1.3"
+
+[package.extras]
+unidecode = ["Unidecode (>=1.1.1)"]
+
+[[package]]
 name = "pytz"
 version = "2025.1"
 description = "World timezone definitions, modern and historical"
@@ -1364,6 +1521,68 @@ python-versions = "*"
 files = [
     {file = "pytz-2025.1-py2.py3-none-any.whl", hash = "sha256:89dd22dca55b46eac6eda23b2d72721bf1bdfef212645d81513ef5d03038de57"},
     {file = "pytz-2025.1.tar.gz", hash = "sha256:c2db42be2a2518b28e65f9207c4d05e6ff547d1efa4086469ef855e4ab70178e"},
+]
+
+[[package]]
+name = "pyyaml"
+version = "6.0.2"
+description = "YAML parser and emitter for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "PyYAML-6.0.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0a9a2848a5b7feac301353437eb7d5957887edbf81d56e903999a75a3d743086"},
+    {file = "PyYAML-6.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:29717114e51c84ddfba879543fb232a6ed60086602313ca38cce623c1d62cfbf"},
+    {file = "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8824b5a04a04a047e72eea5cec3bc266db09e35de6bdfe34c9436ac5ee27d237"},
+    {file = "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:7c36280e6fb8385e520936c3cb3b8042851904eba0e58d277dca80a5cfed590b"},
+    {file = "PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ec031d5d2feb36d1d1a24380e4db6d43695f3748343d99434e6f5f9156aaa2ed"},
+    {file = "PyYAML-6.0.2-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:936d68689298c36b53b29f23c6dbb74de12b4ac12ca6cfe0e047bedceea56180"},
+    {file = "PyYAML-6.0.2-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:23502f431948090f597378482b4812b0caae32c22213aecf3b55325e049a6c68"},
+    {file = "PyYAML-6.0.2-cp310-cp310-win32.whl", hash = "sha256:2e99c6826ffa974fe6e27cdb5ed0021786b03fc98e5ee3c5bfe1fd5015f42b99"},
+    {file = "PyYAML-6.0.2-cp310-cp310-win_amd64.whl", hash = "sha256:a4d3091415f010369ae4ed1fc6b79def9416358877534caf6a0fdd2146c87a3e"},
+    {file = "PyYAML-6.0.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:cc1c1159b3d456576af7a3e4d1ba7e6924cb39de8f67111c735f6fc832082774"},
+    {file = "PyYAML-6.0.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:1e2120ef853f59c7419231f3bf4e7021f1b936f6ebd222406c3b60212205d2ee"},
+    {file = "PyYAML-6.0.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5d225db5a45f21e78dd9358e58a98702a0302f2659a3c6cd320564b75b86f47c"},
+    {file = "PyYAML-6.0.2-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:5ac9328ec4831237bec75defaf839f7d4564be1e6b25ac710bd1a96321cc8317"},
+    {file = "PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3ad2a3decf9aaba3d29c8f537ac4b243e36bef957511b4766cb0057d32b0be85"},
+    {file = "PyYAML-6.0.2-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:ff3824dc5261f50c9b0dfb3be22b4567a6f938ccce4587b38952d85fd9e9afe4"},
+    {file = "PyYAML-6.0.2-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:797b4f722ffa07cc8d62053e4cff1486fa6dc094105d13fea7b1de7d8bf71c9e"},
+    {file = "PyYAML-6.0.2-cp311-cp311-win32.whl", hash = "sha256:11d8f3dd2b9c1207dcaf2ee0bbbfd5991f571186ec9cc78427ba5bd32afae4b5"},
+    {file = "PyYAML-6.0.2-cp311-cp311-win_amd64.whl", hash = "sha256:e10ce637b18caea04431ce14fabcf5c64a1c61ec9c56b071a4b7ca131ca52d44"},
+    {file = "PyYAML-6.0.2-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:c70c95198c015b85feafc136515252a261a84561b7b1d51e3384e0655ddf25ab"},
+    {file = "PyYAML-6.0.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ce826d6ef20b1bc864f0a68340c8b3287705cae2f8b4b1d932177dcc76721725"},
+    {file = "PyYAML-6.0.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1f71ea527786de97d1a0cc0eacd1defc0985dcf6b3f17bb77dcfc8c34bec4dc5"},
+    {file = "PyYAML-6.0.2-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:9b22676e8097e9e22e36d6b7bda33190d0d400f345f23d4065d48f4ca7ae0425"},
+    {file = "PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:80bab7bfc629882493af4aa31a4cfa43a4c57c83813253626916b8c7ada83476"},
+    {file = "PyYAML-6.0.2-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:0833f8694549e586547b576dcfaba4a6b55b9e96098b36cdc7ebefe667dfed48"},
+    {file = "PyYAML-6.0.2-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:8b9c7197f7cb2738065c481a0461e50ad02f18c78cd75775628afb4d7137fb3b"},
+    {file = "PyYAML-6.0.2-cp312-cp312-win32.whl", hash = "sha256:ef6107725bd54b262d6dedcc2af448a266975032bc85ef0172c5f059da6325b4"},
+    {file = "PyYAML-6.0.2-cp312-cp312-win_amd64.whl", hash = "sha256:7e7401d0de89a9a855c839bc697c079a4af81cf878373abd7dc625847d25cbd8"},
+    {file = "PyYAML-6.0.2-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:efdca5630322a10774e8e98e1af481aad470dd62c3170801852d752aa7a783ba"},
+    {file = "PyYAML-6.0.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:50187695423ffe49e2deacb8cd10510bc361faac997de9efef88badc3bb9e2d1"},
+    {file = "PyYAML-6.0.2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0ffe8360bab4910ef1b9e87fb812d8bc0a308b0d0eef8c8f44e0254ab3b07133"},
+    {file = "PyYAML-6.0.2-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:17e311b6c678207928d649faa7cb0d7b4c26a0ba73d41e99c4fff6b6c3276484"},
+    {file = "PyYAML-6.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:70b189594dbe54f75ab3a1acec5f1e3faa7e8cf2f1e08d9b561cb41b845f69d5"},
+    {file = "PyYAML-6.0.2-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:41e4e3953a79407c794916fa277a82531dd93aad34e29c2a514c2c0c5fe971cc"},
+    {file = "PyYAML-6.0.2-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:68ccc6023a3400877818152ad9a1033e3db8625d899c72eacb5a668902e4d652"},
+    {file = "PyYAML-6.0.2-cp313-cp313-win32.whl", hash = "sha256:bc2fa7c6b47d6bc618dd7fb02ef6fdedb1090ec036abab80d4681424b84c1183"},
+    {file = "PyYAML-6.0.2-cp313-cp313-win_amd64.whl", hash = "sha256:8388ee1976c416731879ac16da0aff3f63b286ffdd57cdeb95f3f2e085687563"},
+    {file = "PyYAML-6.0.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:24471b829b3bf607e04e88d79542a9d48bb037c2267d7927a874e6c205ca7e9a"},
+    {file = "PyYAML-6.0.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d7fded462629cfa4b685c5416b949ebad6cec74af5e2d42905d41e257e0869f5"},
+    {file = "PyYAML-6.0.2-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:d84a1718ee396f54f3a086ea0a66d8e552b2ab2017ef8b420e92edbc841c352d"},
+    {file = "PyYAML-6.0.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9056c1ecd25795207ad294bcf39f2db3d845767be0ea6e6a34d856f006006083"},
+    {file = "PyYAML-6.0.2-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:82d09873e40955485746739bcb8b4586983670466c23382c19cffecbf1fd8706"},
+    {file = "PyYAML-6.0.2-cp38-cp38-win32.whl", hash = "sha256:43fa96a3ca0d6b1812e01ced1044a003533c47f6ee8aca31724f78e93ccc089a"},
+    {file = "PyYAML-6.0.2-cp38-cp38-win_amd64.whl", hash = "sha256:01179a4a8559ab5de078078f37e5c1a30d76bb88519906844fd7bdea1b7729ff"},
+    {file = "PyYAML-6.0.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:688ba32a1cffef67fd2e9398a2efebaea461578b0923624778664cc1c914db5d"},
+    {file = "PyYAML-6.0.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:a8786accb172bd8afb8be14490a16625cbc387036876ab6ba70912730faf8e1f"},
+    {file = "PyYAML-6.0.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d8e03406cac8513435335dbab54c0d385e4a49e4945d2909a581c83647ca0290"},
+    {file = "PyYAML-6.0.2-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:f753120cb8181e736c57ef7636e83f31b9c0d1722c516f7e86cf15b7aa57ff12"},
+    {file = "PyYAML-6.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3b1fdb9dc17f5a7677423d508ab4f243a726dea51fa5e70992e59a7411c89d19"},
+    {file = "PyYAML-6.0.2-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:0b69e4ce7a131fe56b7e4d770c67429700908fc0752af059838b1cfb41960e4e"},
+    {file = "PyYAML-6.0.2-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:a9f8c2e67970f13b16084e04f134610fd1d374bf477b17ec1599185cf611d725"},
+    {file = "PyYAML-6.0.2-cp39-cp39-win32.whl", hash = "sha256:6395c297d42274772abc367baaa79683958044e5d3835486c16da75d2a694631"},
+    {file = "PyYAML-6.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:39693e1f8320ae4f43943590b49779ffb98acb81f788220ea932a6b6c51004d8"},
+    {file = "pyyaml-6.0.2.tar.gz", hash = "sha256:d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"},
 ]
 
 [[package]]
@@ -1523,6 +1742,43 @@ files = [
 pyasn1 = ">=0.1.3"
 
 [[package]]
+name = "s3transfer"
+version = "0.11.2"
+description = "An Amazon S3 Transfer Manager"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "s3transfer-0.11.2-py3-none-any.whl", hash = "sha256:be6ecb39fadd986ef1701097771f87e4d2f821f27f6071c872143884d2950fbc"},
+    {file = "s3transfer-0.11.2.tar.gz", hash = "sha256:3b39185cb72f5acc77db1a58b6e25b977f28d20496b6e58d6813d75f464d632f"},
+]
+
+[package.dependencies]
+botocore = ">=1.36.0,<2.0a.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.36.0,<2.0a.0)"]
+
+[[package]]
+name = "setuptools"
+version = "75.8.0"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "setuptools-75.8.0-py3-none-any.whl", hash = "sha256:e3982f444617239225d675215d51f6ba05f845d4eec313da4418fdbb56fb27e3"},
+    {file = "setuptools-75.8.0.tar.gz", hash = "sha256:c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"},
+]
+
+[package.extras]
+check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1)", "ruff (>=0.8.0)"]
+core = ["importlib_metadata (>=6)", "jaraco.collections", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
+cover = ["pytest-cov"]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
+enabler = ["pytest-enabler (>=2.2)"]
+test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.7.2)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
+type = ["importlib_metadata (>=7.0.2)", "jaraco.develop (>=7.21)", "mypy (==1.14.*)", "pytest-mypy"]
+
+[[package]]
 name = "shellingham"
 version = "1.5.4"
 description = "Tool to Detect Surrounding Shell"
@@ -1605,6 +1861,17 @@ tests = ["freezegun (>=0.2.8)", "pretend", "pytest (>=6.0)", "pytest-asyncio (>=
 typing = ["mypy (>=1.4)", "rich", "twisted"]
 
 [[package]]
+name = "text-unidecode"
+version = "1.3"
+description = "The most basic Text::Unidecode port"
+optional = false
+python-versions = "*"
+files = [
+    {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
+    {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
+]
+
+[[package]]
 name = "tiktoken"
 version = "0.9.0"
 description = "tiktoken is a fast BPE tokeniser for use with OpenAI's models"
@@ -1652,6 +1919,17 @@ requests = ">=2.26.0"
 blobfile = ["blobfile (>=2)"]
 
 [[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+files = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
+
+[[package]]
 name = "tqdm"
 version = "4.67.1"
 description = "Fast, Extensible Progress Meter"
@@ -1671,6 +1949,23 @@ discord = ["requests"]
 notebook = ["ipywidgets (>=6)"]
 slack = ["slack-sdk"]
 telegram = ["requests"]
+
+[[package]]
+name = "troposphere"
+version = "4.9.0"
+description = "AWS CloudFormation creation library"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "troposphere-4.9.0-py3-none-any.whl", hash = "sha256:a5550eccb2b4fb4fd861af54d01bcea1704845b00e45376a7fe87a0aa6f0646d"},
+    {file = "troposphere-4.9.0.tar.gz", hash = "sha256:c0eab90c3723f70a04ece651fc648e5c9b8afbb80ce2dadb87cc22404b2fc884"},
+]
+
+[package.dependencies]
+cfn_flip = ">=1.0.2"
+
+[package.extras]
+policy = ["awacs (>=2.0.0)"]
 
 [[package]]
 name = "typer"
@@ -1774,7 +2069,68 @@ files = [
     {file = "wcwidth-0.2.13.tar.gz", hash = "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"},
 ]
 
+[[package]]
+name = "werkzeug"
+version = "3.1.3"
+description = "The comprehensive WSGI web application library."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "werkzeug-3.1.3-py3-none-any.whl", hash = "sha256:54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e"},
+    {file = "werkzeug-3.1.3.tar.gz", hash = "sha256:60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746"},
+]
+
+[package.dependencies]
+MarkupSafe = ">=2.1.1"
+
+[package.extras]
+watchdog = ["watchdog (>=2.3)"]
+
+[[package]]
+name = "wheel"
+version = "0.45.1"
+description = "A built-package format for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wheel-0.45.1-py3-none-any.whl", hash = "sha256:708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248"},
+    {file = "wheel-0.45.1.tar.gz", hash = "sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"},
+]
+
+[package.extras]
+test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
+
+[[package]]
+name = "zappa"
+version = "0.59.0"
+description = "Server-less Python Web Services for AWS Lambda and API Gateway"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "zappa-0.59.0-py3-none-any.whl", hash = "sha256:4f5f2459ce0acb72a9aa2241ce0aa48661d651196055738769017eaad8422017"},
+    {file = "zappa-0.59.0.tar.gz", hash = "sha256:239c25eb949cadafc6dc2efe94230191d3e99c1bf437529d99bb933ff409d55e"},
+]
+
+[package.dependencies]
+argcomplete = "*"
+boto3 = ">=1.17.28"
+durationpy = "*"
+hjson = "*"
+jmespath = "*"
+kappa = "0.6.0"
+pip = ">=9.0.1"
+placebo = "<0.10"
+python-dateutil = "*"
+python-slugify = "*"
+pyyaml = "*"
+requests = ">=2.20.0"
+toml = "*"
+tqdm = "*"
+troposphere = ">=3.0"
+werkzeug = "*"
+wheel = "*"
+
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.13"
-content-hash = "d100039d7b97c588f324d4d15d09b41b58d79fe6fe9ff04be85aaded450a1b74"
+python-versions = "3.12.8"
+content-hash = "81bf651a649c913dbc33b6a2284b739255fc5ab69aadefaa04deaeddd2d7a475"
