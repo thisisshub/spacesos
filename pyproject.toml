@@ -23,6 +23,7 @@ psycopg2-binary = "^2.9.10"
 zappa = "^0.59.0"
 setuptools = "^75.8.0"
 django-s3-storage = "^0.15.0"
+django-cors-headers = "^4.7.0"
 
 [build-system]
 requires = ["poetry-core"]

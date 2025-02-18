@@ -17,6 +17,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True if os.getenv("DEVELOPMENT_MODE").lower() == "true" else False
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
+CORS_ALLOWED_ORIGINS = [
+    "https://" + i if DEBUG else "http://" + i for i in ALLOWED_HOSTS
+]
+
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -27,6 +32,7 @@ INSTALLED_APPS = [
     # -----------------------------
     # Internal Dependencies
     # -----------------------------
+    "corsheaders",
     "rest_framework",
     "django_structlog",
     "django_s3_storage",
@@ -48,6 +54,8 @@ MIDDLEWARE = [
     # -----------------------------
     # Internal Dependencies
     # -----------------------------
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django_structlog.middlewares.RequestMiddleware",
 ]
 
@@ -130,12 +138,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -196,7 +198,6 @@ log = structlog.get_logger("django_structlog")
 AI_MODEL = os.getenv("OPENAI_API_KEY", os.getenv("GEMINI_API_KEY"))
 
 YOUR_S3_BUCKET = os.getenv("BUCKET_NAME")
-
 STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
 AWS_S3_BUCKET_NAME_STATIC = YOUR_S3_BUCKET
 
