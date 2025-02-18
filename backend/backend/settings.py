@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # -----------------------------
     "rest_framework",
     "django_structlog",
+    "django_s3_storage",
     "rest_framework_simplejwt",
     # -----------------------------
     # Django defined apps
@@ -193,3 +194,13 @@ structlog.configure(
 log = structlog.get_logger("django_structlog")
 
 AI_MODEL = os.getenv("OPENAI_API_KEY", os.getenv("GEMINI_API_KEY"))
+
+YOUR_S3_BUCKET = os.getenv("BUCKET_NAME")
+
+STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
+AWS_S3_BUCKET_NAME_STATIC = YOUR_S3_BUCKET
+
+# These next two lines will serve the static files directly from the s3 bucket
+AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % YOUR_S3_BUCKET
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
